@@ -7,9 +7,10 @@
 ###############################
 
 # REFERENCES
-## https://sqlpad.io/tutorial/python-download-file-from-url/#:~:text=Here's%20how%20you'd%20tell,request%20was%20successful%20if%20response.
+# "https://sqlpad.io/tutorial/python-download-file-from-url/#:~:text=Here's%20how%20you'd%20tell,request%20was%20successful%20if%20response."
 
-## The problem valid problem I faced during this assignment is that I couldn't read dzongkha words with different syllabus as a word rather it is being read by the whitespaces, so I tried referring to same situation like katakana words and tibetan spell checkers
+## Problem Statement:
+# You are tasked with creating a spell checker for the Dzongkha language. Your program should read a Dzongkha text file (dzo.txt) that contains multiple spelling errors which will be provided by the tutor (refer Accessing Input File section). The program should identify and report these errors.
 
 ###############################
 # SOLUTION
@@ -49,11 +50,11 @@ doc = Document('dictionary.docx')
 doc_text = '\n'.join([para.text for para in doc.paragraphs])
 
 # Processes the text in order to remove all but Dzongkha letters
-cleaned_content = clean(doc_text)
+cleaned_txt = clean(doc_text)
 
-# It will write the modified content into a new file
+# It writes the modified content into a new file
 with open('dictionary.txt', 'w', encoding='utf-8') as file:
-    file.write(cleaned_content)
+    file.write(cleaned_txt)
 
 print("You have successfully converted and cleaned your .docx file in 'dictionary.txt' ")
 
@@ -73,11 +74,11 @@ def spell_checker(dictionary_file, input_file):
     dictionary_words = dictionary(dictionary_file)
     input_lines = input(input_file)
 
-    for line_num, line in enumerate(input_lines, start=1):
+    for line_no, line in enumerate(input_lines, start=1):
         words = line.split()  # Split line into words
-        for word_num, word in enumerate(words, start=1):
+        for word_no, word in enumerate(words, start=1):
             if word not in dictionary_words:  # Checks if word is in the dictionary
-                print(f"Line {line_num}, {word_num} word {word} is incorrect.")
+                print(f"Line {line_no}, {word_no} word {word} is incorrect.")
 
 spell_checker('dictionary.txt', '362.txt')
 
