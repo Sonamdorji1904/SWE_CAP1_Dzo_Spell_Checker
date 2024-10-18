@@ -1,5 +1,6 @@
 ###############################
-# 
+"https://github.com/Sonamdorji1904/SWE_CAP1_Dzo_Spell_Checker.git"
+
 
 # Sonam Dorji
 # 1st SWE A
@@ -7,10 +8,10 @@
 ###############################
 
 # REFERENCES
-# "https://sqlpad.io/tutorial/python-download-file-from-url/#:~:text=Here's%20how%20you'd%20tell,request%20was%20successful%20if%20response."
+"https://sqlpad.io/tutorial/python-download-file-from-url/#:~:text=Here's%20how%20you'd%20tell,request%20was%20successful%20if%20response."
 
 ## Problem Statement:
-# You are tasked with creating a spell checker for the Dzongkha language. Your program should read a Dzongkha text file (dzo.txt) that contains multiple spelling errors which will be provided by the tutor (refer Accessing Input File section). The program should identify and report these errors.
+" You are tasked with creating a spell checker for the Dzongkha language. Your program should read a Dzongkha text file (dzo.txt) that contains multiple spelling errors which will be provided by the tutor (refer Accessing Input File section). The program should identify and report these errors. "
 
 ###############################
 # SOLUTION
@@ -19,13 +20,14 @@
 
 import requests
 
-url = "https://csf101-server-cap1.onrender.com/get/input/362"
-r = requests.get(url)
+def download_file(url, output_filename):
+    data = requests.get(url)
+    with open(output_filename, 'wb') as file:
+        file.write(data.content)
+    print(f"Downloaded: {output_filename}")
 
-with open('362.txt', 'wb') as file:
-    data = file.write(r.content)
-
-print("Downloaded: 362.txt")
+# Example usage
+download_file("https://csf101-server-cap1.onrender.com/get/input/362", "362.txt")
 
 
 print("Converting.........................")
