@@ -77,7 +77,7 @@ def spell_checker(dictionary_file, input_file):
     input_lines = input(input_file)
 
     for line_no, line in enumerate(input_lines, start=1):
-        words = line.split()  # Split line into words
+        words = line.split('་')  # Split line into words
         for word_no, word in enumerate(words, start=1):
             if word not in dictionary_words:  # Checks if word is in the dictionary
                 print(f"Line {line_no}, {word_no} word {word} is incorrect.")
